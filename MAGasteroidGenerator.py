@@ -1,6 +1,6 @@
 # ------------------------------------------------------------------------------
 # ------------------------------------------------------------------------------
-# asteroidGenerator.py
+# MAGasteroidGenerator.py
 #
 # This script generates synthetic asteroid streaks for astronomical image analysis,
 # specifically for simulating the appearance of asteroids in ZTF-like survey images.

@@ -1,6 +1,6 @@
-**G**enerator for **A**steroid detection in **M**achine-learning **E**nhanced **S**urveys
+# **G**enerator for **A**steroid detection in **M**achine-learning **E**nhanced **S**urveys (GAMES)
 
-This script generates synthetic asteroid streaks for astronomical image analysis, specifically for simulating the appearance of asteroids in wide-field surveys. The user can specify a coarse magnitude-length distribution to generate the streaks. For a given magnitude, it calculates the appropriate brightness per pixel and injects synthetic streaks into the images, making them realistic by convolving them with the PSF of each individual image. The orientation of the streaks is random. The resultant images can be used for testing detection algorithms or training machine-learning models.
+**GAMES** generates synthetic asteroid streaks for astronomical image analysis, specifically for simulating the appearance of asteroids in wide-field surveys. The user can specify a coarse magnitude-length distribution to generate the streaks. For a given magnitude, it calculates the appropriate brightness per pixel and injects synthetic streaks into the images, making them realistic by convolving them with the PSF of each individual image. The orientation of the streaks is random. The resultant images can be used for testing detection algorithms or training machine-learning models.
 
 **What it does:**
 
@@ -16,13 +16,13 @@ This script generates synthetic asteroid streaks for astronomical image analysis
 
 **How to use:**
 
-* SNRasteroidGenerator.py injects the asteroids into the FITS images for a given SNR range.
-* MAGasteroidGenerator.py injects the asteroids into the FITS images for a given magnitude range.
+* SNRasteroidGenerator.py injects the asteroids into the FITS images for a given **SNR** range.
+* MAGasteroidGenerator.py injects the asteroids into the FITS images for a given **magnitude** range.
 * FITS2PNG.py converts the FITS to PNG images. This is useful for many machine-learning applications. 
 
 Created at IPAC (Infrared Processing and Analysis Center), Caltech.
+
 Author: Belén Yu Irureta-Goyena
-Date: September 2023
 
 This script was originally developed for ZTF images, under the purview of the NEOZTF project, and VST images. If used, it should be cited accordingly. For more details, see https://iopscience.iop.org/article/10.1088/1538-3873/add379 and https://www.aanda.org/articles/aa/abs/2025/02/aa52756-24/aa52756-24.html. 
 

@@ -1,0 +1,65 @@
+import os
+import matplotlib.pyplot as plt
+from astropy.visualization import ZScaleInterval, mpl_normalize, ImageNormalize
+from astropy.io import fits
+import numpy as np
+from PIL import Image
+from matplotlib.colors import Normalize
+
+def convert_fits_to_png(folder_path, outside_path, width=3072, height=3080, dpi=1100):
+    """
+    Converts all FITS files in the specified folder to PNGs using ZScale.
+    NaN values are replaced with 0 to make them noticeable. The final PNG images will have
+    a user-defined size (width x height) and DPI.
+
+    Args:
+        folder_path (str): Path to folder containing FITS files.
+        outside_path (str): Output folder for PNG files.
+        width (int): Output image width in pixels (default 3072).
+        height (int): Output image height in pixels (default 3080).
+        dpi (int): Output image DPI (default 1100).
+    """
+    for filename in os.listdir(folder_path):
+        if filename.endswith('.fits'):
+            fits_path = os.path.join(folder_path, filename)
+            with fits.open(fits_path) as hdulist:
+                image = hdulist[0].data
+
+                # Check for NaN values in the image
+                nan_mask = np.isnan(image)
+
+                if np.any(nan_mask):
+                    # Replace NaN values with 0 to make them blank
+                    image[nan_mask] = 0
+
+
+            norm = ImageNormalize(image, interval=ZScaleInterval(contrast=0.5))
+
+            # Create a figure with the user-defined resolution in inches
+            fig, ax = plt.subplots(figsize=(width / dpi, height / dpi), dpi=dpi)
+
+            # Here's the trick to get the right size: comment this line first
+            # Then, check the size of the output, width (w) and height (h)
+            # The two values multiplying the dpi are the w, h you get in that test
+            fig.set_size_inches(width*width / (dpi*2365), height*height / (dpi*2371))
+
+            ax.imshow(image, norm=norm, aspect='equal')  # Ensure equal aspect ratio
+            ax.axis('off')
+
+            png_path = os.path.join(outside_path, filename.replace('.fits', '.png'))
+
+            # Save the figure without tight layout to avoid unnecessary padding
+            fig.savefig(png_path, bbox_inches='tight', pad_inches=0)
+            
+            # Close the figure
+            plt.close()
+
+
+# Set folder paths and desired output size
+folder_path = '/Volumes/Extreme Pro/ZTF/painted'
+outside_path = '/Volumes/Extreme Pro/ZTF/painted/PNG'
+# Example: set width, height, and dpi as desired
+user_width = 3072
+user_height = 3080
+user_dpi = 1100
+convert_fits_to_png(folder_path, outside_path, width=user_width, height=user_height, dpi=user_dpi)

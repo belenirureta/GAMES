@@ -17,3 +17,7 @@ This script generates synthetic asteroid streaks for astronomical image analysis
 Created at IPAC (Infrared Processing and Analysis Center), Caltech.
 Author: Belén Yu Irureta-Goyena
 Date: September 2023
+
+This script was originally developed for ZTF images, under the purview of the NEOZTF project, and VST images. For more details, see https://iopscience.iop.org/article/10.1088/1538-3873/add379 and https://www.aanda.org/articles/aa/abs/2025/02/aa52756-24/aa52756-24.html. If used, please cite accordingly. 
+
+This project has received funding from the European Union’s Horizon 2020 and Horizon Europe research and innovation programmes under the Marie Skłodowska-Curie grant agreement Nos. 945363 and 101105725, and funding from the Swiss National Science Foundation and the Swiss Innovation Agency (Innosuisse) via the BRIDGE Discovery grant 40B2-0 194729.

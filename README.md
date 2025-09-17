@@ -14,6 +14,11 @@ This script generates synthetic asteroid streaks for astronomical image analysis
 * Simulate flux variations (induced by rotation, phase angle, etc.)
 * Use real population models to generate the streak properties
 
+**How to use:**
+
+* asteroidGenerator.py injects the asteroids into the FITS images. 
+* FITS2PNG.py converts the FITS to PNG images. This is useful for many machine-learning applications. 
+
 Created at IPAC (Infrared Processing and Analysis Center), Caltech.
 Author: Belén Yu Irureta-Goyena
 Date: September 2023

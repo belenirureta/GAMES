@@ -201,7 +201,7 @@ def cameronSeeing(data, header):
 
     Args:
         data (2D np.ndarray): Image data array.
-        header (astropy.io.fits.Header): FITS header with GAIN keyword.
+        header (astropy.io.fits.Header): FITS header with GAIN keyword. For VST, it can be set to ~1.85 if it's missing from the header.
 
     Returns:
         float: Median seeing in arcseconds (FWHM of stars).
